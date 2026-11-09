@@ -1,0 +1,214 @@
+/*
+ * Credits app: a Windows 7 "control panel" page: a pale header with a blue
+ * title, classic property-sheet tabs, and grouped lists separated by
+ * hairlines. Colours come from --crd-* variables so the Minecraft theme
+ * only swaps them (block at the end).
+ */
+.crd {
+    --crd-head: linear-gradient(#ffffff, #eef4fa);
+    --crd-tab: linear-gradient(#f6f9fc, #dfe9f3);
+    --crd-tab-on: #ffffff;
+    --crd-line: #a9bccd;
+    --crd-hair: #d3dde7;
+    --crd-title: #1e3a5f;
+    --crd-link: #1a4f9a;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    background: var(--dsk-panel);
+    color: var(--dsk-panel-ink);
+}
+
+.crd-head {
+    flex: none;
+    padding: 14px 20px 12px;
+    background: var(--crd-head);
+    border-bottom: 1px solid var(--crd-hair);
+}
+.crd-head h2 {
+    margin: 0;
+    color: var(--crd-title);
+    font-size: 22px;
+    font-weight: 400;
+}
+.crd-head p {
+    margin: 3px 0 0;
+    color: var(--dsk-panel-muted);
+}
+
+/* Property-sheet tabs */
+.crd-tabs {
+    display: flex;
+    flex: none;
+    gap: 2px;
+    padding: 10px 20px 0;
+    background: var(--dsk-panel);
+}
+.crd-tabs button {
+    margin-bottom: -1px;
+    padding: 5px 16px;
+    color: var(--dsk-panel-ink);
+    background: var(--crd-tab);
+    border: 1px solid var(--crd-line);
+    border-bottom-color: var(--crd-line);
+    border-radius: 3px 3px 0 0;
+    font: inherit;
+}
+.crd-tabs button:hover {
+    background: linear-gradient(#fdfeff, #e6f1fb);
+}
+.crd-tabs button.is-on {
+    position: relative;
+    background: var(--crd-tab-on);
+    border-bottom-color: var(--crd-tab-on);
+    font-weight: 600;
+}
+.crd-tabs button:focus-visible {
+    outline: 1px dotted currentColor;
+    outline-offset: -4px;
+}
+
+.crd-panel {
+    flex: 1 1 auto;
+    min-height: 0;
+    margin: 0 20px 16px;
+    padding: 6px 18px 16px;
+    overflow: auto;
+    background: var(--crd-tab-on);
+    border: 1px solid var(--crd-line);
+}
+
+.crd h3 {
+    margin: 0;
+    color: var(--crd-title);
+    font-size: 15px;
+    font-weight: 600;
+}
+.crd p {
+    margin: 4px 0 0;
+    line-height: 1.5;
+}
+.crd a {
+    color: var(--crd-link);
+}
+
+/* Made in-house */
+.crd-made {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.crd-made li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--crd-hair);
+}
+.crd-made li:last-child {
+    border-bottom: 0;
+}
+
+/* Credits and sources */
+.crd-group {
+    padding: 14px 0 6px;
+    border-bottom: 1px solid var(--crd-hair);
+}
+.crd-group:last-child {
+    border-bottom: 0;
+}
+.crd-group h3 {
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--crd-hair);
+}
+.crd-intro {
+    color: var(--dsk-panel-muted);
+    font-size: 13px;
+}
+.crd-group ul {
+    margin: 6px 0 0;
+    padding: 0;
+    list-style: none;
+}
+.crd-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 14px;
+    padding: 6px 4px;
+    border-bottom: 1px dotted var(--crd-hair);
+}
+.crd-row:last-child {
+    border-bottom: 0;
+}
+.crd-main {
+    flex: 1 1 260px;
+    min-width: 0;
+}
+.crd-by,
+.crd-license {
+    color: var(--dsk-panel-muted);
+}
+.crd-source {
+    flex: 0 1 auto;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+.crd-notes {
+    flex: 1 0 100%;
+    margin-top: 2px;
+    font-size: 13px;
+}
+.crd-notes summary {
+    color: var(--crd-link);
+    cursor: default;
+}
+.crd-notes p {
+    margin: 3px 0 4px 14px;
+    color: var(--dsk-panel-muted);
+}
+
+.is-compact .crd-head {
+    padding: 12px 14px 10px;
+}
+.is-compact .crd-tabs,
+.is-compact .crd-panel {
+    margin-left: 0;
+    margin-right: 0;
+}
+.is-compact .crd-tabs {
+    padding-left: 12px;
+}
+.is-compact .crd-panel {
+    padding: 4px 12px 14px;
+    border-left: 0;
+    border-right: 0;
+}
+
+/* ------------------------------------------------------ Minecraft theme */
+
+html[data-theme='minecraft'] .crd {
+    --crd-head: #c6c6c6;
+    --crd-tab: #8b8b8b;
+    --crd-tab-on: #c6c6c6;
+    --crd-line: #000;
+    --crd-hair: #555;
+    --crd-title: #202020;
+    --crd-link: #1a3f7a;
+}
+html[data-theme='minecraft'] .crd-head {
+    border-bottom: 2px solid #555;
+}
+html[data-theme='minecraft'] .crd-tabs button {
+    border-width: 2px;
+    color: #fff;
+    text-shadow: 1px 1px 0 #3f3f3f;
+    box-shadow: inset 2px 2px 0 #b9b9b9, inset -2px -2px 0 #4a4a4a;
+}
+html[data-theme='minecraft'] .crd-tabs button.is-on {
+    box-shadow: none;
+    color: #202020;
+    text-shadow: none;
+}
+html[data-theme='minecraft'] .crd-panel {
+    border-width: 2px;
+    box-shadow: inset 2px 2px 0 #373737, inset -2px -2px 0 #fff;
+}

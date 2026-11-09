@@ -1,0 +1,1092 @@
+/*
+ * Minecraft-inspired theme, unlocked with the Konami code (see
+ * hooks/useKonami.ts). Everything is original CSS: stone-grey inventory
+ * panels, slots and blocky buttons. No Mojang/Microsoft textures, logos,
+ * fonts or sounds are used. The theme only restyles; components are shared.
+ *
+ * Structure: toast (both themes) -> variables -> shell -> windows -> app
+ * content -> app-specific rules -> scrollbars.
+ */
+
+/* ---------------------------------------------------------- Toast (both) */
+
+.dsk-toast {
+    position: absolute;
+    left: 50%;
+    bottom: calc(var(--dsk-taskbar-h) + 16px);
+    z-index: 1100;
+    max-width: calc(100% - 24px);
+    padding: 8px 16px;
+    transform: translateX(-50%);
+    border: 1px solid #1b456c;
+    border-radius: 6px;
+    background: linear-gradient(#ffffffee, #d6e8f5ee);
+    color: #23394a;
+    font-size: 13px;
+    box-shadow: 0 6px 20px #00142f66;
+    pointer-events: none;
+    animation: dsk-open 160ms ease-out;
+}
+
+/* --------------------------------------------- Hint balloon + menu hint (both) */
+
+/* Windows 7 style tray balloon pointing at the clock */
+.dsk-balloon {
+    position: absolute;
+    right: 14px;
+    bottom: calc(var(--dsk-taskbar-h) + 14px);
+    z-index: 1002;
+    width: 300px;
+    max-width: calc(100% - 20px);
+    padding: 10px 26px 10px 12px;
+    border: 1px solid #6f6a52;
+    border-radius: 7px;
+    background: linear-gradient(#fffff4, #f2eecf);
+    color: #2b2a22;
+    font-size: 12px;
+    line-height: 1.4;
+    box-shadow: inset 0 0 0 1px #ffffffcc, 0 6px 18px #00142f77;
+    animation: dsk-balloon-in 260ms ease-out;
+}
+
+.dsk-balloon::after {
+    content: '';
+    position: absolute;
+    right: 46px;
+    bottom: -8px;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #6f6a52;
+    border-top: 0;
+    border-left: 0;
+    background: #f2eecf;
+    transform: rotate(45deg);
+}
+
+@keyframes dsk-balloon-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+.dsk-balloon-title {
+    display: block;
+    font-size: 13px;
+}
+
+.dsk-balloon p {
+    margin: 6px 0 4px;
+}
+
+.dsk-balloon small {
+    display: block;
+    color: #5b5944;
+    font-size: 11px;
+}
+
+.dsk-keys {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 2px;
+    vertical-align: middle;
+}
+
+.dsk-keys kbd {
+    min-width: 18px;
+    padding: 0 3px;
+    border: 1px solid #8d8868;
+    border-bottom-width: 2px;
+    border-radius: 3px;
+    background: #fff;
+    font: 600 11px/16px var(--dsk-font);
+    text-align: center;
+}
+
+.dsk-balloon-close {
+    position: absolute;
+    top: 3px;
+    right: 4px;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    background: none;
+    color: #4a4838;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+.dsk-balloon-close:hover {
+    border-color: #b13a2a;
+    background: linear-gradient(#f3a899, #cf5642);
+    color: #fff;
+}
+
+.dsk-menu-hint {
+    margin: 12px 0 0;
+    color: #a9c6dc;
+    letter-spacing: 0.5px;
+    font-size: 10px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.dsk-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* ------------------------------------------------------------ Variables */
+
+html[data-theme='minecraft'] {
+    --mc-panel: #c6c6c6;
+    --mc-slot: #8b8b8b;
+    --mc-slot-light: #a8a8a8;
+    --mc-dark: #373737;
+    --mc-darker: #1e1e1e;
+    --mc-edge: #000;
+    --mc-ink: #202020;
+    --mc-ink-soft: #404040;
+    --mc-green: #4c8c2b;
+    --mc-green-dark: #2f6a1a;
+    --mc-gold: #ffaa00;
+    --mc-red: #a83232;
+    --mc-bevel: inset 2px 2px 0 #fff, inset -2px -2px 0 #555;
+    --mc-sunk: inset 2px 2px 0 #373737, inset -2px -2px 0 #fff;
+    --mc-button: inset 2px 2px 0 #b9b9b9, inset -2px -2px 0 #4a4a4a;
+    --mc-shadow-text: 2px 2px 0 #3f3f3f;
+
+    --dsk-wallpaper: #4d7fd8;
+    --dsk-accent: var(--mc-green);
+    --dsk-accent-dark: #245514;
+    --dsk-accent-ink: #fff;
+    --dsk-panel: var(--mc-panel);
+    --dsk-panel-sunk: var(--mc-slot-light);
+    --dsk-panel-ink: var(--mc-ink);
+    --dsk-panel-muted: var(--mc-ink-soft);
+    --dsk-bevel-light: #fff;
+    --dsk-bevel-dark: #373737;
+    --dsk-rule: #555;
+    --dsk-font: 'Lucida Console', Consolas, 'Courier New', monospace;
+    color-scheme: light;
+}
+
+html[data-theme='minecraft'] body {
+    letter-spacing: 0;
+    -webkit-font-smoothing: none;
+    font-smooth: never;
+}
+
+html[data-theme='minecraft'] button,
+html[data-theme='minecraft'] input,
+html[data-theme='minecraft'] textarea {
+    font-family: var(--dsk-font);
+}
+
+/* Everything is a block: no rounded corners anywhere in the desktop. */
+html[data-theme='minecraft'] .dsk-root *,
+html[data-theme='minecraft'] .dsk-root *::before,
+html[data-theme='minecraft'] .dsk-root *::after {
+    border-radius: 0 !important;
+    backdrop-filter: none !important;
+}
+
+html[data-theme='minecraft'] ::selection {
+    background: #3d5fb4;
+    color: #fff;
+}
+
+/* ---------------------------------------------------------------- Shell */
+
+html[data-theme='minecraft'] .dsk-surface {
+    background: #4d7fd8 url('./minecraft-wallpaper.svg') center bottom / cover no-repeat;
+}
+
+html[data-theme='minecraft'] .dsk-signature {
+    color: #fff;
+    text-shadow: var(--mc-shadow-text);
+}
+
+html[data-theme='minecraft'] .dsk-signature strong {
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+html[data-theme='minecraft'] .dsk-signature span {
+    letter-spacing: 1px;
+}
+
+/* Desktop icons sit in inventory slots */
+html[data-theme='minecraft'] .dsk-icon {
+    border: 2px solid transparent;
+}
+
+html[data-theme='minecraft'] .dsk-icon > .dsk-svg {
+    box-sizing: border-box;
+    width: 56px;
+    height: 56px;
+    padding: 6px;
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-slot);
+    box-shadow: var(--mc-sunk);
+    filter: none;
+}
+
+html[data-theme='minecraft'] .dsk-icon span {
+    padding: 1px 5px;
+    background: #000000a6;
+    color: #fff;
+    text-shadow: var(--mc-shadow-text);
+}
+
+html[data-theme='minecraft'] .dsk-icon:hover,
+html[data-theme='minecraft'] .dsk-icon:focus-visible {
+    background: none;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+html[data-theme='minecraft'] .dsk-icon:hover > .dsk-svg,
+html[data-theme='minecraft'] .dsk-icon:focus-visible > .dsk-svg {
+    background: var(--mc-slot-light);
+    outline: 2px solid #fff;
+    outline-offset: -4px;
+}
+
+/* ------------------------------------------------------ Taskbar (hotbar) */
+
+html[data-theme='minecraft'] .dsk-taskbar {
+    border-top: 2px solid var(--mc-edge);
+    background: var(--mc-dark);
+    box-shadow: inset 0 2px 0 #6b6b6b;
+}
+
+html[data-theme='minecraft'] .dsk-start {
+    top: 0;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--mc-edge);
+    background: linear-gradient(#5da83a 0 36%, #866043 36% 100%);
+    box-shadow: inset 2px 2px 0 #ffffff55, inset -2px -2px 0 #00000055;
+}
+
+html[data-theme='minecraft'] .dsk-start:hover,
+html[data-theme='minecraft'] .dsk-start.is-open {
+    box-shadow: inset 0 0 0 2px #fff;
+    filter: brightness(1.12);
+}
+
+html[data-theme='minecraft'] .dsk-start-mark {
+    transform: none;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    color: #fff;
+    text-shadow: var(--mc-shadow-text);
+}
+
+html[data-theme='minecraft'] .dsk-task {
+    flex-basis: 44px;
+    height: 38px;
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-slot);
+    box-shadow: var(--mc-sunk);
+}
+
+html[data-theme='minecraft'] .dsk-task span {
+    color: #fff;
+    text-shadow: var(--mc-shadow-text);
+}
+
+html[data-theme='minecraft'] .dsk-task.is-running {
+    background: var(--mc-slot-light);
+    box-shadow: var(--mc-sunk);
+    border-color: var(--mc-edge);
+}
+
+html[data-theme='minecraft'] .dsk-task.is-minimized {
+    background: var(--mc-slot);
+    border-color: var(--mc-edge);
+}
+
+html[data-theme='minecraft'] .dsk-task.is-active,
+html[data-theme='minecraft'] .dsk-task:hover {
+    background: var(--mc-slot-light);
+    border-color: #fff;
+    outline: 2px solid var(--mc-edge);
+    outline-offset: -4px;
+}
+
+html[data-theme='minecraft'] .dsk-clock {
+    color: #fff;
+    text-shadow: var(--mc-shadow-text);
+}
+
+html[data-theme='minecraft'] .dsk-show-desktop {
+    border-left: 2px solid var(--mc-edge);
+    background: var(--mc-slot);
+    box-shadow: inset 2px 0 0 #fff;
+}
+
+html[data-theme='minecraft'] .dsk-show-desktop:hover {
+    background: var(--mc-slot-light);
+}
+
+/* ----------------------------------------------------------- Start menu */
+
+html[data-theme='minecraft'] .dsk-menu {
+    padding: 6px;
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-panel);
+    box-shadow: var(--mc-bevel);
+}
+
+html[data-theme='minecraft'] .dsk-menu-main {
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-slot-light);
+    box-shadow: var(--mc-sunk);
+}
+
+html[data-theme='minecraft'] .dsk-menu-item {
+    border: 2px solid transparent;
+    color: var(--mc-ink);
+}
+
+html[data-theme='minecraft'] .dsk-menu-item small {
+    color: var(--mc-ink-soft);
+}
+
+html[data-theme='minecraft'] .dsk-menu-item:hover,
+html[data-theme='minecraft'] .dsk-menu-item:focus-visible {
+    background: var(--mc-panel);
+    border-color: #fff;
+}
+
+html[data-theme='minecraft'] .dsk-menu-search {
+    border-top: 2px solid var(--mc-edge);
+    background: var(--mc-slot);
+}
+
+html[data-theme='minecraft'] .dsk-menu-search input,
+html[data-theme='minecraft'] .fx-search {
+    border: 2px solid var(--mc-edge);
+    background: #000;
+    color: #fff;
+    box-shadow: inset 0 0 0 2px #a0a0a0;
+}
+
+html[data-theme='minecraft'] .dsk-menu-search > span {
+    color: #fff;
+}
+
+html[data-theme='minecraft'] .dsk-menu-empty {
+    color: var(--mc-ink-soft);
+}
+
+html[data-theme='minecraft'] .dsk-menu-side {
+    color: var(--mc-ink);
+    text-shadow: none;
+}
+
+html[data-theme='minecraft'] .dsk-avatar {
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-slot);
+    box-shadow: var(--mc-sunk);
+}
+
+html[data-theme='minecraft'] .dsk-menu-caption {
+    color: var(--mc-ink-soft);
+}
+
+html[data-theme='minecraft'] .dsk-menu-links button {
+    border: 2px solid transparent;
+    text-shadow: none;
+    color: var(--mc-ink);
+}
+
+html[data-theme='minecraft'] .dsk-menu-links button:hover,
+html[data-theme='minecraft'] .dsk-menu-links button:focus-visible {
+    border-color: #fff;
+    background: var(--mc-slot-light);
+}
+
+html[data-theme='minecraft'] .dsk-menu-links hr {
+    border-top: 2px solid #555;
+    border-bottom: 2px solid #fff;
+}
+
+/* -------------------------------------------------------------- Windows */
+
+html[data-theme='minecraft'] .dsk-window,
+html[data-theme='minecraft'] .dsk-window.is-active {
+    padding: 0 6px 6px;
+    border: 2px solid var(--mc-edge);
+    background: #b4b4b4;
+    box-shadow: var(--mc-bevel), 6px 6px 0 #0000004d;
+}
+
+html[data-theme='minecraft'] .dsk-window.is-active {
+    background: var(--mc-panel);
+}
+
+html[data-theme='minecraft'] .dsk-window.is-maximized {
+    box-shadow: var(--mc-bevel);
+}
+
+html[data-theme='minecraft'] .dsk-titlebar {
+    height: 34px;
+    color: #6b6b6b;
+}
+
+html[data-theme='minecraft'] .dsk-window.is-active .dsk-titlebar {
+    color: var(--mc-ink);
+}
+
+html[data-theme='minecraft'] .dsk-title {
+    text-shadow: none;
+    font-weight: 700;
+}
+
+html[data-theme='minecraft'] .dsk-controls {
+    gap: 2px;
+    margin-top: 4px;
+    border: 0;
+    box-shadow: none;
+    overflow: visible;
+}
+
+html[data-theme='minecraft'] .dsk-controls button,
+html[data-theme='minecraft'] .dsk-controls button:first-child,
+html[data-theme='minecraft'] .dsk-controls button:last-child {
+    width: 26px;
+    height: 24px;
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-slot);
+    color: #fff;
+    box-shadow: var(--mc-button);
+    filter: none;
+}
+
+html[data-theme='minecraft'] .dsk-controls button:last-child {
+    background: var(--mc-red);
+}
+
+html[data-theme='minecraft'] .dsk-controls button:hover {
+    background: #6b7cb8;
+    box-shadow: var(--mc-button);
+}
+
+html[data-theme='minecraft'] .dsk-controls button:last-child:hover {
+    background: #d04848;
+}
+
+html[data-theme='minecraft'] .dsk-controls button:active {
+    filter: brightness(.85);
+}
+
+html[data-theme='minecraft'] .dsk-glyph-close::before,
+html[data-theme='minecraft'] .dsk-glyph-close::after {
+    width: 3px;
+}
+
+html[data-theme='minecraft'] .dsk-window-body {
+    border: 2px solid var(--mc-edge);
+    box-shadow: var(--mc-sunk);
+    background: var(--dsk-panel);
+    scrollbar-color: #555 #8b8b8b;
+}
+
+html[data-theme='minecraft'] .dsk-location {
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-slot-light);
+    box-shadow: var(--mc-sunk);
+    color: var(--mc-ink);
+}
+
+html[data-theme='minecraft'] .dsk-location b {
+    color: var(--mc-ink-soft);
+}
+
+/* -------------------------------------------- Shared app content (panes) */
+
+html[data-theme='minecraft'] .dsk-meta,
+html[data-theme='minecraft'] .dsk-lead {
+    color: var(--mc-ink-soft);
+}
+
+html[data-theme='minecraft'] .dsk-section h3 {
+    color: var(--mc-ink);
+    border-bottom-color: #555;
+}
+
+html[data-theme='minecraft'] .dsk-chips li,
+html[data-theme='minecraft'] .dsk-tag {
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-slot);
+    color: #fff;
+    text-shadow: 1px 1px 0 #3f3f3f;
+}
+
+html[data-theme='minecraft'] .dsk-hint {
+    border-color: #555;
+    color: var(--mc-ink-soft);
+}
+
+html[data-theme='minecraft'] .dsk-button {
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-slot);
+    color: #fff;
+    text-shadow: var(--mc-shadow-text);
+    box-shadow: var(--mc-button);
+}
+
+html[data-theme='minecraft'] .dsk-button:hover {
+    background: #6b7cb8;
+}
+
+html[data-theme='minecraft'] .dsk-button:active {
+    box-shadow: var(--mc-sunk);
+}
+
+html[data-theme='minecraft'] .dsk-button.is-primary {
+    background: var(--mc-green);
+    border-color: var(--mc-edge);
+    box-shadow: inset 2px 2px 0 #8fd04f, inset -2px -2px 0 #2b5a17;
+}
+
+html[data-theme='minecraft'] .dsk-button.is-primary:hover {
+    background: #5aa534;
+}
+
+html[data-theme='minecraft'] .dsk-button.is-disabled {
+    background: #6f6f6f;
+    color: #b0b0b0;
+    border-color: #333;
+    text-shadow: none;
+}
+
+html[data-theme='minecraft'] .dsk-list-item {
+    border: 2px solid transparent;
+    color: var(--mc-ink);
+}
+
+html[data-theme='minecraft'] .dsk-list-item:hover {
+    background: var(--mc-panel);
+    border-color: #fff;
+}
+
+html[data-theme='minecraft'] .dsk-list-item.is-selected {
+    color: #fff;
+    background: var(--mc-slot);
+    box-shadow: var(--mc-sunk);
+    border-color: var(--mc-edge);
+}
+
+html[data-theme='minecraft'] .dsk-list-item.is-selected span {
+    color: #e6e6e6;
+    opacity: 1;
+}
+
+html[data-theme='minecraft'] .dsk-split-list {
+    border-right: 2px solid var(--mc-edge);
+    background: var(--mc-slot-light);
+}
+
+html[data-theme='minecraft'] .dsk-timeline-item::before {
+    background: var(--mc-green);
+    border-color: var(--mc-edge);
+}
+
+html[data-theme='minecraft'] .dsk-photo,
+html[data-theme='minecraft'] .dsk-photo-placeholder {
+    border: 2px solid var(--mc-edge);
+}
+
+html[data-theme='minecraft'] .dsk-contact-list a,
+html[data-theme='minecraft'] .dsk-back,
+html[data-theme='minecraft'] .dsk-text-button {
+    color: #1a3f7a;
+}
+
+/* ------------------------------------------------------ File Explorer */
+
+html[data-theme='minecraft'] .fx {
+    background: var(--mc-panel);
+    color: var(--mc-ink);
+}
+
+html[data-theme='minecraft'] .fx-bar {
+    background: var(--mc-panel);
+    border-bottom: 2px solid #555;
+}
+
+html[data-theme='minecraft'] .fx-nav,
+html[data-theme='minecraft'] .fx-views button {
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-slot);
+    color: #fff;
+    box-shadow: var(--mc-button);
+}
+
+html[data-theme='minecraft'] .fx-nav:hover:not(:disabled),
+html[data-theme='minecraft'] .fx-views button:hover {
+    background: #6b7cb8;
+}
+
+html[data-theme='minecraft'] .fx-views button.is-on {
+    background: var(--mc-green);
+    box-shadow: inset 2px 2px 0 #8fd04f, inset -2px -2px 0 #2b5a17;
+}
+
+html[data-theme='minecraft'] .fx-address {
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-slot-light);
+    box-shadow: var(--mc-sunk);
+}
+
+html[data-theme='minecraft'] .fx-address button:hover {
+    background: var(--mc-panel);
+    border-color: #fff;
+}
+
+html[data-theme='minecraft'] .fx-tools {
+    background: var(--mc-slot-light);
+    border-bottom: 2px solid #555;
+}
+
+html[data-theme='minecraft'] .fx-side {
+    background: var(--mc-slot-light);
+    border-right: 2px solid var(--mc-edge);
+}
+
+html[data-theme='minecraft'] .fx-side button {
+    border: 2px solid transparent;
+    color: var(--mc-ink);
+}
+
+html[data-theme='minecraft'] .fx-side button:hover {
+    background: var(--mc-panel);
+    border-color: #fff;
+}
+
+html[data-theme='minecraft'] .fx-side button.is-active {
+    background: var(--mc-slot);
+    border-color: var(--mc-edge);
+    color: #fff;
+    text-shadow: 1px 1px 0 #3f3f3f;
+}
+
+html[data-theme='minecraft'] .fx-content,
+html[data-theme='minecraft'] .fx-viewer {
+    background: var(--mc-panel);
+}
+
+html[data-theme='minecraft'] .fx-icons button {
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-slot);
+    box-shadow: var(--mc-sunk);
+    color: #fff;
+    text-shadow: 1px 1px 0 #3f3f3f;
+}
+
+html[data-theme='minecraft'] .fx-icons button:hover {
+    background: var(--mc-slot-light);
+    border-color: var(--mc-edge);
+}
+
+html[data-theme='minecraft'] .fx-icons button.is-selected {
+    background: var(--mc-slot-light);
+    border-color: var(--mc-edge);
+    outline: 2px solid #fff;
+    outline-offset: -4px;
+}
+
+html[data-theme='minecraft'] .fx-list th {
+    background: var(--mc-slot);
+    color: #fff;
+    text-shadow: 1px 1px 0 #3f3f3f;
+    border-bottom: 2px solid var(--mc-edge);
+}
+
+html[data-theme='minecraft'] .fx-list tbody tr:hover {
+    background: #b4b4b4;
+}
+
+html[data-theme='minecraft'] .fx-list tbody tr.is-selected {
+    background: var(--mc-slot);
+    color: #fff;
+    text-shadow: 1px 1px 0 #3f3f3f;
+}
+
+html[data-theme='minecraft'] .fx-status {
+    background: var(--mc-slot-light);
+    border-top: 2px solid #555;
+    color: var(--mc-ink);
+}
+
+/* Context menus and dialogs: inventory-tooltip look */
+html[data-theme='minecraft'] .fx-menu {
+    border: 2px solid #2d0a63;
+    background: #100010;
+    box-shadow: none;
+}
+
+html[data-theme='minecraft'] .fx-menu button {
+    color: #fff;
+    text-shadow: var(--mc-shadow-text);
+}
+
+html[data-theme='minecraft'] .fx-menu button:hover {
+    background: #3b2a6b;
+    border-color: #6a4bbf;
+}
+
+html[data-theme='minecraft'] .fx-dialog {
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-panel);
+    box-shadow: var(--mc-bevel);
+}
+
+html[data-theme='minecraft'] .fx-dialog dt {
+    color: var(--mc-ink-soft);
+}
+
+/* ------------------------------------------------------------- Terminal */
+
+html[data-theme='minecraft'] .term {
+    background: #000;
+    color: #d0d0d0;
+}
+
+html[data-theme='minecraft'] .term-line.is-err {
+    color: #ff5555;
+}
+
+html[data-theme='minecraft'] .term-prompt {
+    color: #55ff55;
+}
+
+/* ------------------------------------------------------ Wallpaper Studio */
+
+html[data-theme='minecraft'] .wps-app {
+    background: #313131;
+    color: #fff;
+}
+
+html[data-theme='minecraft'] .wps-toolbar {
+    background: var(--mc-dark);
+    border-bottom: 2px solid var(--mc-edge);
+}
+
+html[data-theme='minecraft'] .wps-filters {
+    background: var(--mc-darker);
+}
+
+html[data-theme='minecraft'] .wps-filters button {
+    border: 2px solid transparent;
+    color: #d8d8d8;
+}
+
+html[data-theme='minecraft'] .wps-filters button.is-active {
+    background: var(--mc-slot);
+    border-color: var(--mc-edge);
+    color: #fff;
+}
+
+html[data-theme='minecraft'] .wps-tile {
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-slot);
+    box-shadow: var(--mc-sunk);
+}
+
+html[data-theme='minecraft'] .wps-tile:hover {
+    border-color: #fff;
+}
+
+html[data-theme='minecraft'] .wps-tile.is-selected {
+    border-color: #fff;
+    box-shadow: var(--mc-sunk), 0 0 0 2px var(--mc-edge);
+}
+
+html[data-theme='minecraft'] .wps-badge {
+    background: var(--mc-green);
+    border: 2px solid var(--mc-edge);
+}
+
+html[data-theme='minecraft'] .wps-detail {
+    background: var(--mc-darker);
+    border-left: 2px solid var(--mc-edge);
+}
+
+html[data-theme='minecraft'] .wps-preview {
+    box-shadow: none;
+    border: 2px solid var(--mc-edge);
+}
+
+html[data-theme='minecraft'] .wps-apply {
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-green);
+    box-shadow: inset 2px 2px 0 #8fd04f, inset -2px -2px 0 #2b5a17;
+    text-shadow: var(--mc-shadow-text);
+}
+
+html[data-theme='minecraft'] .wps-apply:disabled {
+    background: #5a5a5a;
+    box-shadow: none;
+    color: #aaa;
+}
+
+/* ---------------------------------- Resume viewer (the PDF is untouched) */
+
+html[data-theme='minecraft'] .doc-app {
+    background: var(--mc-dark);
+}
+
+html[data-theme='minecraft'] .doc-toolbar {
+    background: var(--mc-panel);
+    border-bottom: 2px solid var(--mc-edge);
+    color: var(--mc-ink);
+}
+
+html[data-theme='minecraft'] .doc-file small {
+    color: var(--mc-ink-soft);
+}
+
+html[data-theme='minecraft'] .doc-page {
+    border: 2px solid var(--mc-edge);
+    box-shadow: none;
+}
+
+/* ------------------------------ Who Am I? browser (page content untouched) */
+
+html[data-theme='minecraft'] .brw-app {
+    background: var(--mc-dark);
+}
+
+html[data-theme='minecraft'] .brw-tabs {
+    background: var(--mc-dark);
+}
+
+html[data-theme='minecraft'] .brw-tab {
+    border: 2px solid var(--mc-edge);
+    border-bottom: 0;
+    background: var(--mc-panel);
+    color: var(--mc-ink);
+}
+
+html[data-theme='minecraft'] .brw-toolbar {
+    background: var(--mc-panel);
+    border-bottom: 2px solid var(--mc-edge);
+}
+
+html[data-theme='minecraft'] .brw-toolbar button,
+html[data-theme='minecraft'] .brw-open {
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-slot);
+    color: #fff;
+    box-shadow: var(--mc-button);
+}
+
+html[data-theme='minecraft'] .brw-toolbar button:hover:not(:disabled),
+html[data-theme='minecraft'] .brw-open:hover {
+    background: #6b7cb8;
+}
+
+html[data-theme='minecraft'] .brw-toolbar button:disabled {
+    background: #6f6f6f;
+    color: #b0b0b0;
+}
+
+html[data-theme='minecraft'] .brw-omnibox {
+    border: 2px solid var(--mc-edge);
+    background: #000;
+    color: #bdbdbd;
+    box-shadow: inset 0 0 0 2px #a0a0a0;
+}
+
+html[data-theme='minecraft'] .brw-omnibox:focus-within {
+    background: #000;
+    box-shadow: inset 0 0 0 2px #fff;
+}
+
+html[data-theme='minecraft'] .brw-omnibox input {
+    color: #fff;
+}
+
+/* ------------------------------------------------------------ Scrollbars */
+
+html[data-theme='minecraft'] .dsk-root * {
+    scrollbar-color: #555 var(--mc-slot);
+    scrollbar-width: auto;
+}
+
+html[data-theme='minecraft'] .dsk-root ::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+}
+
+html[data-theme='minecraft'] .dsk-root ::-webkit-scrollbar-track {
+    background: var(--mc-slot);
+    box-shadow: inset 2px 2px 0 #373737;
+}
+
+html[data-theme='minecraft'] .dsk-root ::-webkit-scrollbar-thumb {
+    background: var(--mc-panel);
+    border: 2px solid var(--mc-edge);
+    box-shadow: var(--mc-bevel);
+}
+
+html[data-theme='minecraft'] .dsk-root ::-webkit-scrollbar-corner {
+    background: var(--mc-slot);
+}
+
+/* Toast in the Minecraft theme */
+html[data-theme='minecraft'] .dsk-toast {
+    border: 2px solid #2d0a63;
+    background: #100010;
+    color: #fff;
+    text-shadow: var(--mc-shadow-text);
+    box-shadow: none;
+}
+
+/* Hint balloon and menu hint in the Minecraft theme */
+html[data-theme='minecraft'] .dsk-balloon {
+    border: 2px solid #2d0a63;
+    background: #100010;
+    color: #fff;
+    text-shadow: var(--mc-shadow-text);
+    box-shadow: none;
+}
+
+html[data-theme='minecraft'] .dsk-balloon::after {
+    border: 2px solid #2d0a63;
+    border-top: 0;
+    border-left: 0;
+    background: #100010;
+}
+
+html[data-theme='minecraft'] .dsk-balloon small {
+    color: #c9c9c9;
+}
+
+html[data-theme='minecraft'] .dsk-keys kbd {
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-slot);
+    color: #fff;
+    box-shadow: var(--mc-button);
+}
+
+html[data-theme='minecraft'] .dsk-balloon-close {
+    color: #fff;
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-red);
+    box-shadow: var(--mc-button);
+}
+
+html[data-theme='minecraft'] .dsk-balloon-close:hover {
+    background: #d04848;
+    border-color: var(--mc-edge);
+}
+
+html[data-theme='minecraft'] .dsk-menu-hint {
+    color: var(--mc-ink-soft);
+}
+
+/* ---------------------------------------------------------- Music (albums) */
+
+html[data-theme='minecraft'] .alb-app {
+    background: #313131;
+    color: #fff;
+}
+
+html[data-theme='minecraft'] .alb-top {
+    background: var(--mc-dark);
+    border-bottom: 2px solid var(--mc-edge);
+    box-shadow: inset 0 2px 0 #6b6b6b;
+}
+
+html[data-theme='minecraft'] .alb-crumbs,
+html[data-theme='minecraft'] .alb-info h2 {
+    text-shadow: var(--mc-shadow-text);
+}
+
+html[data-theme='minecraft'] .alb-sort button,
+html[data-theme='minecraft'] .alb-back {
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-slot);
+    color: #fff;
+    box-shadow: var(--mc-button);
+    text-shadow: 1px 1px 0 #3f3f3f;
+}
+
+html[data-theme='minecraft'] .alb-sort button:hover,
+html[data-theme='minecraft'] .alb-back:hover {
+    background: #6b7cb8;
+}
+
+html[data-theme='minecraft'] .alb-sort button.is-on {
+    background: var(--mc-green);
+    box-shadow: inset 2px 2px 0 #8fd04f, inset -2px -2px 0 #2b5a17;
+}
+
+html[data-theme='minecraft'] .alb-tile {
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-slot);
+    box-shadow: var(--mc-sunk);
+}
+
+html[data-theme='minecraft'] .alb-tile strong,
+html[data-theme='minecraft'] .alb-tile span {
+    color: #fff;
+    text-shadow: 1px 1px 0 #3f3f3f;
+}
+
+html[data-theme='minecraft'] .alb-tile:hover,
+html[data-theme='minecraft'] .alb-tile:focus-visible {
+    background: var(--mc-slot-light);
+    border-color: var(--mc-edge);
+    outline: 2px solid #fff;
+    outline-offset: -4px;
+    box-shadow: var(--mc-sunk);
+}
+
+html[data-theme='minecraft'] .alb-cover {
+    border: 2px solid var(--mc-edge);
+    box-shadow: none;
+    -webkit-box-reflect: unset;
+}
+
+html[data-theme='minecraft'] .alb-listen {
+    border: 2px solid var(--mc-edge);
+    background: var(--mc-green);
+    box-shadow: inset 2px 2px 0 #8fd04f, inset -2px -2px 0 #2b5a17;
+    text-shadow: var(--mc-shadow-text);
+}
+
+html[data-theme='minecraft'] .alb-listen.is-disabled {
+    background: #6f6f6f;
+    border: 2px solid #333;
+    color: #d0d0d0;
+    box-shadow: none;
+}
+
+html[data-theme='minecraft'] .alb-year,
+html[data-theme='minecraft'] .alb-artist,
+html[data-theme='minecraft'] .alb-note,
+html[data-theme='minecraft'] .alb-note.is-empty,
+html[data-theme='minecraft'] .alb-fineprint,
+html[data-theme='minecraft'] .alb-empty {
+    color: #e6e6e6;
+}
+
+html[data-theme='minecraft'] .alb-status {
+    background: var(--mc-darker);
+    border-top: 2px solid var(--mc-edge);
+    color: #d0d0d0;
+}

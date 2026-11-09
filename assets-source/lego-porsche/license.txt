@@ -1,0 +1,11 @@
+Model Information:
+* title:	LEGO 10295 Porsche 911 (Turbo)
+* source:	https://sketchfab.com/3d-models/lego-10295-porsche-911-turbo-73d0cef548c04c3f9b6cef9871ea8d52
+* author:	Sleepy Sea Otter (https://sketchfab.com/sleepyseaotter)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "LEGO 10295 Porsche 911 (Turbo)" (https://sketchfab.com/3d-models/lego-10295-porsche-911-turbo-73d0cef548c04c3f9b6cef9871ea8d52) by Sleepy Sea Otter (https://sketchfab.com/sleepyseaotter) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

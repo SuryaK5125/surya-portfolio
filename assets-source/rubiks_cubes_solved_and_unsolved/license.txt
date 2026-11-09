@@ -1,0 +1,11 @@
+Model Information:
+* title:	Rubik's Cubes Solved And Unsolved
+* source:	https://sketchfab.com/3d-models/rubiks-cubes-solved-and-unsolved-4906dda419924335b02332c69adb3d38
+* author:	Default Digital (https://sketchfab.com/defaultdigital)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Rubik's Cubes Solved And Unsolved" (https://sketchfab.com/3d-models/rubiks-cubes-solved-and-unsolved-4906dda419924335b02332c69adb3d38) by Default Digital (https://sketchfab.com/defaultdigital) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

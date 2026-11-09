@@ -1,0 +1,168 @@
+[
+  {
+    "model": "Props/headphones",
+    "sourceSha256": "765d039b16dc7abfde59510f933b6f9138fff2d6f87c237f661b6307bb87345c",
+    "deliverySha256": "44edb8a130f2fe873ef7532f7dcff3982423de84c61eb9f77f461c1a7f49d9a4",
+    "before": 3635616,
+    "after": 3046928,
+    "compressedViews": 16,
+    "images": [
+      {
+        "image": 0,
+        "before": 350836,
+        "after": 295168,
+        "pixels": "identical"
+      },
+      {
+        "image": 1,
+        "before": 188793,
+        "after": 153298,
+        "pixels": "identical"
+      },
+      {
+        "image": 3,
+        "before": 377328,
+        "after": 329270,
+        "pixels": "identical"
+      },
+      {
+        "image": 4,
+        "before": 383476,
+        "after": 296400,
+        "pixels": "identical"
+      },
+      {
+        "image": 6,
+        "before": 422472,
+        "after": 376490,
+        "pixels": "identical"
+      },
+      {
+        "image": 7,
+        "before": 357291,
+        "after": 303762,
+        "pixels": "identical"
+      },
+      {
+        "image": 9,
+        "before": 334202,
+        "after": 279000,
+        "pixels": "identical"
+      },
+      {
+        "image": 10,
+        "before": 327371,
+        "after": 273086,
+        "pixels": "identical"
+      }
+    ]
+  },
+  {
+    "model": "Props/mouse",
+    "sourceSha256": "f2ce5be9a79d8efdb6c2d844389526d3eab395b51810ff61bf6115508facbadf",
+    "deliverySha256": "7ec62540eb5ba34e3dc6b93a6c6735a6665dc4c2c6ef72d5d2ae1adbc0a73a08",
+    "before": 1541480,
+    "after": 825868,
+    "compressedViews": 12,
+    "images": []
+  },
+  {
+    "model": "Props/chair",
+    "sourceSha256": "d683212785f101ceeaa31b94094649e3f74618ff74084569a21aea1e33e3f43b",
+    "deliverySha256": "82cdc3642c1cf9c83df81980e2266eeecdb0797cc06e1cadf2e79143b89eabc7",
+    "before": 451828,
+    "after": 398404,
+    "compressedViews": 4,
+    "images": [
+      {
+        "image": 2,
+        "before": 273958,
+        "after": 234836,
+        "pixels": "identical"
+      }
+    ]
+  },
+  {
+    "model": "Laptop/laptop",
+    "sourceSha256": "3b9cc787865e07a0b86503696187add251e75a77b157ec0101ee5943a3f84d30",
+    "deliverySha256": "1b364e2afa3c3a0f8dffee7f80fdcb1bbe76d70ca0167a9a8bf5fe81913f91d2",
+    "before": 1484084,
+    "after": 549868,
+    "compressedViews": 41,
+    "images": [
+      {
+        "image": 0,
+        "before": 12433,
+        "after": 6802,
+        "pixels": "identical"
+      },
+      {
+        "image": 1,
+        "before": 9809,
+        "after": 7600,
+        "pixels": "identical"
+      }
+    ]
+  },
+  {
+    "model": "Porsche/porsche",
+    "sourceSha256": "4128a9a8c4b08f4e29e90e30ba6bfc2526d912da7e6fccc00ea400fad9e11009",
+    "deliverySha256": "634a5757b1b38c2457d98e350484bdd44122de415918a6bd22b60746c597c872",
+    "before": 2224924,
+    "after": 1302812,
+    "compressedViews": 78,
+    "images": []
+  },
+  {
+    "model": "Speaker/speaker",
+    "sourceSha256": "3e468d6338f363ceea51d89dc4059d28fffff709ed150150e664dd7a10bc0447",
+    "deliverySha256": "6dc00018d87df19f9731cbe8d419dac22ee7c157e8516a333dad38a812242dfd",
+    "before": 1278008,
+    "after": 886000,
+    "compressedViews": 33,
+    "images": [
+      {
+        "image": 0,
+        "before": 58389,
+        "after": 41522,
+        "pixels": "identical"
+      },
+      {
+        "image": 1,
+        "before": 286572,
+        "after": 210132,
+        "pixels": "identical"
+      },
+      {
+        "image": 2,
+        "before": 93715,
+        "after": 74668,
+        "pixels": "identical"
+      },
+      {
+        "image": 3,
+        "before": 83261,
+        "after": 63038,
+        "pixels": "identical"
+      },
+      {
+        "image": 4,
+        "before": 94248,
+        "after": 62974,
+        "pixels": "identical"
+      },
+      {
+        "image": 5,
+        "before": 88947,
+        "after": 68158,
+        "pixels": "identical"
+      },
+      {
+        "image": 6,
+        "before": 176546,
+        "after": 140416,
+        "pixels": "identical"
+      }
+    ]
+  }
+]

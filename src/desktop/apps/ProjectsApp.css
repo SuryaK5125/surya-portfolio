@@ -1,0 +1,387 @@
+/*
+ * Projects app: Windows 7 Explorer-style details list, details pane and
+ * case-study view. Colours come from --prj-* variables so the Minecraft
+ * theme only needs to swap them (block at the end of this file).
+ */
+.prj {
+    --prj-bar: linear-gradient(#f6fafd, #e3edf6);
+    --prj-head: linear-gradient(#fff, #eef4f9);
+    --prj-hover: #eaf5fc;
+    --prj-hover-line: #c7e0f1;
+    --prj-sel: #cde6f7;
+    --prj-sel-line: #8cbbdc;
+    --prj-pane: linear-gradient(#f4f9fd, #e8f1f8);
+    --prj-heading: #1e3a5f;
+    --prj-line: var(--dsk-rule);
+    --prj-link: #1a4f9a;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+    background: var(--dsk-panel);
+    color: var(--dsk-panel-ink);
+}
+
+/* ------------------------------------------------------------ Toolbar */
+
+.prj-toolbar {
+    display: flex;
+    flex: none;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px;
+    background: var(--prj-bar);
+    border-bottom: 1px solid var(--prj-line);
+}
+
+.prj-crumb {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.prj-count {
+    margin-left: auto;
+    color: var(--dsk-panel-muted);
+    font-size: 12px;
+}
+
+.prj-pager {
+    display: inline-flex;
+    gap: 4px;
+}
+
+.prj-tool {
+    padding: 2px 10px;
+    color: var(--dsk-panel-ink);
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font: inherit;
+}
+
+.prj-tool:hover:not(:disabled),
+.prj-tool:focus-visible {
+    outline: none;
+    background: linear-gradient(#fdfeff, #dcebf7);
+    border-color: var(--prj-sel-line);
+}
+
+.prj-tool:disabled {
+    color: var(--dsk-panel-muted);
+    opacity: 0.5;
+    cursor: default;
+}
+
+/* ------------------------------------------------------- Details list */
+
+.prj-table {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: auto;
+    background: #fff;
+}
+
+.prj-head,
+.prj-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.6fr) minmax(0, 0.6fr);
+    align-items: center;
+    gap: 0 12px;
+    width: 100%;
+    padding: 0 12px;
+}
+
+.prj-head {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    color: var(--dsk-panel-muted);
+    background: var(--prj-head);
+    border-bottom: 1px solid var(--prj-line);
+    font-size: 12px;
+}
+
+.prj-row {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: inherit;
+    text-align: left;
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font: inherit;
+    cursor: default;
+}
+
+.prj-row:hover {
+    background: var(--prj-hover);
+    border-color: var(--prj-hover-line);
+}
+
+.prj-row.is-selected {
+    background: var(--prj-sel);
+    border-color: var(--prj-sel-line);
+}
+
+.prj-row:focus-visible {
+    outline: 1px dotted currentColor;
+    outline-offset: -3px;
+}
+
+.prj-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.prj-name .dsk-tag {
+    margin-left: 6px;
+}
+
+.prj-cell {
+    overflow: hidden;
+    color: var(--dsk-panel-muted);
+    font-size: 13px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ------------------------------------------------------- Details pane */
+
+.prj-details {
+    display: flex;
+    flex: none;
+    gap: 12px;
+    min-height: 92px;
+    padding: 10px 14px;
+    background: var(--prj-pane);
+    border-top: 1px solid var(--prj-line);
+}
+
+.prj-details strong {
+    font-size: 15px;
+}
+
+.prj-details p {
+    margin: 2px 0 4px;
+}
+
+.prj-details small {
+    color: var(--dsk-panel-muted);
+}
+
+/* --------------------------------------------------------- Case study */
+
+.prj-scroll {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: auto;
+}
+
+.prj-case {
+    padding: 16px 22px 24px;
+}
+
+.prj-case h2 {
+    margin: 0;
+    color: var(--prj-heading);
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 1.25;
+    outline: none;
+}
+
+.prj-case h2 .dsk-tag {
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.prj-summary {
+    margin: 4px 0 0;
+    color: var(--dsk-panel-muted);
+}
+
+.prj-case-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 28px;
+    margin-top: 14px;
+}
+
+.prj-case-main {
+    flex: 1 1 320px;
+    min-width: 0;
+}
+
+.prj-section h3,
+.prj-facts h3 {
+    margin: 16px 0 6px;
+    padding-bottom: 2px;
+    color: var(--prj-heading);
+    border-bottom: 1px solid var(--prj-line);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.prj-section:first-child h3 {
+    margin-top: 0;
+}
+
+.prj-case p {
+    margin: 0 0 8px;
+    line-height: 1.55;
+}
+
+.prj-section ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.prj-section li {
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+.prj-facts {
+    flex: 0 1 230px;
+    align-self: flex-start;
+    min-width: 200px;
+    padding: 0 14px 12px;
+    background: var(--prj-pane);
+    border: 1px solid var(--prj-line);
+}
+
+.prj-facts h3 {
+    margin-top: 10px;
+}
+
+.prj-facts dl {
+    margin: 0;
+}
+
+.prj-facts dt {
+    margin-top: 10px;
+    color: var(--dsk-panel-muted);
+    font-size: 12px;
+}
+
+.prj-facts dd {
+    margin: 2px 0 0;
+}
+
+.prj-stack {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.prj-stack li {
+    line-height: 1.5;
+}
+
+.prj-facts a {
+    color: var(--prj-link);
+}
+
+/* ------------------------------------------------------ Narrow windows */
+
+.prj.is-narrow .prj-head,
+.prj.is-narrow .prj-row {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.prj.is-narrow .prj-head span:not(:first-child),
+.prj.is-narrow .prj-cell:last-child {
+    display: none;
+}
+
+.prj.is-narrow .prj-cell {
+    padding-left: 28px;
+}
+
+.prj.is-narrow .prj-case {
+    padding: 12px 14px 18px;
+}
+
+.prj.is-narrow .prj-facts {
+    flex-basis: 100%;
+}
+
+/* ------------------------------------------------------ Minecraft theme */
+
+html[data-theme='minecraft'] .prj {
+    --prj-bar: #c6c6c6;
+    --prj-head: #8b8b8b;
+    --prj-hover: #b4b4b4;
+    --prj-hover-line: #fff;
+    --prj-sel: #8b8b8b;
+    --prj-sel-line: #000;
+    --prj-pane: #a8a8a8;
+    --prj-heading: #202020;
+    --prj-line: #555;
+    --prj-link: #1a3f7a;
+}
+
+html[data-theme='minecraft'] .prj-table {
+    background: var(--dsk-panel);
+}
+
+html[data-theme='minecraft'] .prj-head {
+    color: #fff;
+    text-shadow: 1px 1px 0 #3f3f3f;
+    border-bottom: 2px solid #000;
+}
+
+html[data-theme='minecraft'] .prj-row {
+    border-width: 2px;
+}
+
+html[data-theme='minecraft'] .prj-row.is-selected {
+    color: #fff;
+    text-shadow: 1px 1px 0 #3f3f3f;
+    box-shadow: inset 2px 2px 0 #373737, inset -2px -2px 0 #fff;
+}
+
+html[data-theme='minecraft'] .prj-row.is-selected .prj-cell {
+    color: #e6e6e6;
+}
+
+html[data-theme='minecraft'] .prj-toolbar {
+    border-bottom: 2px solid #555;
+}
+
+html[data-theme='minecraft'] .prj-tool {
+    border: 2px solid #000;
+    background: #8b8b8b;
+    color: #fff;
+    text-shadow: 1px 1px 0 #3f3f3f;
+    box-shadow: inset 2px 2px 0 #b9b9b9, inset -2px -2px 0 #4a4a4a;
+}
+
+html[data-theme='minecraft'] .prj-tool:hover:not(:disabled),
+html[data-theme='minecraft'] .prj-tool:focus-visible {
+    background: #6b7cb8;
+    border-color: #000;
+}
+
+html[data-theme='minecraft'] .prj-tool:disabled {
+    background: #6f6f6f;
+    border-color: #333;
+}
+
+html[data-theme='minecraft'] .prj-facts {
+    border: 2px solid #000;
+    box-shadow: inset 2px 2px 0 #373737, inset -2px -2px 0 #fff;
+}
+
+html[data-theme='minecraft'] .prj-details {
+    border-top: 2px solid #000;
+}

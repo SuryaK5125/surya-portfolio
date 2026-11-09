@@ -1,0 +1,712 @@
+{
+  "baseCommit": "121a6f31dbb3e6a5e909f31dfcf16ce14b4913b4",
+  "branch": "main",
+  "viewport": {
+    "width": 643,
+    "height": 779
+  },
+  "method": "Unthrottled production build, fresh localhost origins for HTTP-cold samples; same origins for cached navigation; no build/encoder running. Host and shader caches not controlled.",
+  "earlierBaselineInteractiveMs": 9625.7,
+  "runs": [
+    {
+      "report": "after-verified-1794239800702.9-_-settled.json",
+      "label": "after-verified",
+      "visit": "cold",
+      "sceneReadyMs": 1669.6,
+      "interactiveMs": 7275,
+      "skipIntro": false,
+      "desktopReadyMs": 1706,
+      "frameMs": {
+        "count": 405,
+        "median": 8.3,
+        "p95": 8.9
+      },
+      "approxFps": 115,
+      "totalAssetBodyBytes": 11362730,
+      "criticalAssetBodyBytes": 11103006,
+      "assets": [
+        {
+          "path": "/main.css",
+          "bodyBytes": 15791,
+          "startMs": 45.4,
+          "transferBytes": 16091
+        },
+        {
+          "path": "/runtime-main.c3f61c920a08b7b1.js",
+          "bodyBytes": 3602,
+          "startMs": 45.4,
+          "transferBytes": 3902
+        },
+        {
+          "path": "/react-vendor.317f09077185bc4c.js",
+          "bodyBytes": 129210,
+          "startMs": 45.4,
+          "transferBytes": 129510
+        },
+        {
+          "path": "/main.6cb03da2ea020d00.js",
+          "bodyBytes": 732815,
+          "startMs": 45.4,
+          "transferBytes": 733115
+        },
+        {
+          "path": "/models/World/environment.glb",
+          "bodyBytes": 95452,
+          "startMs": 183.4,
+          "transferBytes": 95752
+        },
+        {
+          "path": "/models/Laptop/laptop.meshopt.glb",
+          "bodyBytes": 549868,
+          "startMs": 183.9,
+          "transferBytes": 550168
+        },
+        {
+          "path": "/models/Props/headphones.meshopt.glb",
+          "bodyBytes": 3046928,
+          "startMs": 184,
+          "transferBytes": 3047228
+        },
+        {
+          "path": "/models/Props/chair.meshopt.glb",
+          "bodyBytes": 398404,
+          "startMs": 184.1,
+          "transferBytes": 398704
+        },
+        {
+          "path": "/models/Props/mouse.meshopt.glb",
+          "bodyBytes": 825868,
+          "startMs": 184.1,
+          "transferBytes": 826168
+        },
+        {
+          "path": "/models/Speaker/speaker.meshopt.glb",
+          "bodyBytes": 886000,
+          "startMs": 184.2,
+          "transferBytes": 886300
+        },
+        {
+          "path": "/models/Porsche/porsche.meshopt.glb",
+          "bodyBytes": 1302812,
+          "startMs": 184.2,
+          "transferBytes": 1303112
+        },
+        {
+          "path": "/models/World/baked_environment_desk.jpg",
+          "bodyBytes": 789073,
+          "startMs": 262.1,
+          "transferBytes": 789373
+        },
+        {
+          "path": "/textures/posters/local/f40.jpg",
+          "bodyBytes": 97472,
+          "startMs": 262.3,
+          "transferBytes": 97772
+        },
+        {
+          "path": "/textures/posters/local/porsche-911.jpg",
+          "bodyBytes": 85331,
+          "startMs": 262.4,
+          "transferBytes": 85631
+        },
+        {
+          "path": "/textures/posters/local/m3-e30.jpg",
+          "bodyBytes": 149167,
+          "startMs": 262.4,
+          "transferBytes": 149467
+        },
+        {
+          "path": "/textures/posters/local/star-destroyer.jpg",
+          "bodyBytes": 165391,
+          "startMs": 262.5,
+          "transferBytes": 165691
+        },
+        {
+          "path": "/textures/posters/local/tsubaki.jpg",
+          "bodyBytes": 327753,
+          "startMs": 262.6,
+          "transferBytes": 328053
+        },
+        {
+          "path": "/textures/posters/local/blue-orchid.jpg",
+          "bodyBytes": 418539,
+          "startMs": 262.6,
+          "transferBytes": 418839
+        },
+        {
+          "path": "/textures/posters/local/gos-game.jpg",
+          "bodyBytes": 703536,
+          "startMs": 262.6,
+          "transferBytes": 703836
+        },
+        {
+          "path": "/textures/posters/local/resident-evil-4.jpg",
+          "bodyBytes": 199713,
+          "startMs": 262.7,
+          "transferBytes": 200013
+        },
+        {
+          "path": "/ffbcd8e4fac59356.ico",
+          "bodyBytes": 15406,
+          "startMs": 550.8,
+          "transferBytes": 15706
+        },
+        {
+          "path": "/runtime-desktop.7a1e3699262552ef.js",
+          "bodyBytes": 4684,
+          "startMs": 1658,
+          "transferBytes": 4984
+        },
+        {
+          "path": "/desktop.7b184c5d825c1279.js",
+          "bodyBytes": 43524,
+          "startMs": 1658,
+          "transferBytes": 43824
+        },
+        {
+          "path": "/desktop.css",
+          "bodyBytes": 74353,
+          "startMs": 1658,
+          "transferBytes": 74653
+        },
+        {
+          "path": "/models/Props/cube-2x2.glb",
+          "bodyBytes": 22368,
+          "startMs": 1670.3,
+          "transferBytes": 22668
+        },
+        {
+          "path": "/models/Props/cube-3x3.glb",
+          "bodyBytes": 71168,
+          "startMs": 1670.4,
+          "transferBytes": 71468
+        },
+        {
+          "path": "/models/Props/cube-4x4.glb",
+          "bodyBytes": 166188,
+          "startMs": 1670.5,
+          "transferBytes": 166488
+        },
+        {
+          "path": "/desktop/wallpapers/img0.jpg",
+          "bodyBytes": 42314,
+          "startMs": 1700,
+          "transferBytes": 42614
+        }
+      ]
+    },
+    {
+      "report": "after-verified-1794240058062.3-_-settled.json",
+      "label": "after-verified",
+      "visit": "cached",
+      "sceneReadyMs": 2614.1,
+      "interactiveMs": 2616.6,
+      "skipIntro": true,
+      "desktopReadyMs": 2608,
+      "frameMs": {
+        "count": 360,
+        "median": 8.3,
+        "p95": 16.7
+      },
+      "approxFps": 102,
+      "totalAssetBodyBytes": 11347324,
+      "criticalAssetBodyBytes": 11087600,
+      "assets": [
+        {
+          "path": "/runtime-main.c3f61c920a08b7b1.js",
+          "bodyBytes": 3602,
+          "startMs": 42.8,
+          "transferBytes": 0
+        },
+        {
+          "path": "/react-vendor.317f09077185bc4c.js",
+          "bodyBytes": 129210,
+          "startMs": 42.8,
+          "transferBytes": 0
+        },
+        {
+          "path": "/main.6cb03da2ea020d00.js",
+          "bodyBytes": 732815,
+          "startMs": 42.8,
+          "transferBytes": 0
+        },
+        {
+          "path": "/main.css",
+          "bodyBytes": 15791,
+          "startMs": 42.8,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/World/environment.glb",
+          "bodyBytes": 95452,
+          "startMs": 137.5,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/Laptop/laptop.meshopt.glb",
+          "bodyBytes": 549868,
+          "startMs": 138,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/Props/headphones.meshopt.glb",
+          "bodyBytes": 3046928,
+          "startMs": 138.2,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/Props/mouse.meshopt.glb",
+          "bodyBytes": 825868,
+          "startMs": 138.4,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/Props/chair.meshopt.glb",
+          "bodyBytes": 398404,
+          "startMs": 138.6,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/Porsche/porsche.meshopt.glb",
+          "bodyBytes": 1302812,
+          "startMs": 138.8,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/Speaker/speaker.meshopt.glb",
+          "bodyBytes": 886000,
+          "startMs": 139,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/World/baked_environment_desk.jpg",
+          "bodyBytes": 789073,
+          "startMs": 179.5,
+          "transferBytes": 0
+        },
+        {
+          "path": "/textures/posters/local/f40.jpg",
+          "bodyBytes": 97472,
+          "startMs": 179.6,
+          "transferBytes": 0
+        },
+        {
+          "path": "/textures/posters/local/porsche-911.jpg",
+          "bodyBytes": 85331,
+          "startMs": 179.6,
+          "transferBytes": 0
+        },
+        {
+          "path": "/textures/posters/local/m3-e30.jpg",
+          "bodyBytes": 149167,
+          "startMs": 179.6,
+          "transferBytes": 0
+        },
+        {
+          "path": "/textures/posters/local/star-destroyer.jpg",
+          "bodyBytes": 165391,
+          "startMs": 179.7,
+          "transferBytes": 0
+        },
+        {
+          "path": "/textures/posters/local/blue-orchid.jpg",
+          "bodyBytes": 418539,
+          "startMs": 179.7,
+          "transferBytes": 0
+        },
+        {
+          "path": "/textures/posters/local/tsubaki.jpg",
+          "bodyBytes": 327753,
+          "startMs": 179.8,
+          "transferBytes": 0
+        },
+        {
+          "path": "/textures/posters/local/resident-evil-4.jpg",
+          "bodyBytes": 199713,
+          "startMs": 179.8,
+          "transferBytes": 0
+        },
+        {
+          "path": "/textures/posters/local/gos-game.jpg",
+          "bodyBytes": 703536,
+          "startMs": 179.8,
+          "transferBytes": 0
+        },
+        {
+          "path": "/runtime-desktop.7a1e3699262552ef.js",
+          "bodyBytes": 4684,
+          "startMs": 2290,
+          "transferBytes": 0
+        },
+        {
+          "path": "/desktop.7b184c5d825c1279.js",
+          "bodyBytes": 43524,
+          "startMs": 2290,
+          "transferBytes": 0
+        },
+        {
+          "path": "/desktop.css",
+          "bodyBytes": 74353,
+          "startMs": 2290,
+          "transferBytes": 0
+        },
+        {
+          "path": "/desktop/wallpapers/img0.jpg",
+          "bodyBytes": 42314,
+          "startMs": 2321,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/Props/cube-2x2.glb",
+          "bodyBytes": 22368,
+          "startMs": 2615.4,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/Props/cube-3x3.glb",
+          "bodyBytes": 71168,
+          "startMs": 2615.5,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/Props/cube-4x4.glb",
+          "bodyBytes": 166188,
+          "startMs": 2616.3,
+          "transferBytes": 0
+        }
+      ]
+    },
+    {
+      "report": "before-verified-1794239743821.3-_-settled.json",
+      "label": "before-verified",
+      "visit": "cold",
+      "sceneReadyMs": 1168,
+      "interactiveMs": 6773.6,
+      "skipIntro": false,
+      "desktopReadyMs": 1211,
+      "frameMs": {
+        "count": 420,
+        "median": 8.3,
+        "p95": 8.4
+      },
+      "approxFps": 120,
+      "totalAssetBodyBytes": 15163727,
+      "criticalAssetBodyBytes": 15163727,
+      "assets": [
+        {
+          "path": "/main.css",
+          "bodyBytes": 15791,
+          "startMs": 36.8,
+          "transferBytes": 16091
+        },
+        {
+          "path": "/main.d60ef5d35c152603.js",
+          "bodyBytes": 871943,
+          "startMs": 36.8,
+          "transferBytes": 872243
+        },
+        {
+          "path": "/models/Props/cube-2x2.glb",
+          "bodyBytes": 22368,
+          "startMs": 140.5,
+          "transferBytes": 22668
+        },
+        {
+          "path": "/models/Props/cube-3x3.glb",
+          "bodyBytes": 71168,
+          "startMs": 140.8,
+          "transferBytes": 71468
+        },
+        {
+          "path": "/models/Props/cube-4x4.glb",
+          "bodyBytes": 166188,
+          "startMs": 141.1,
+          "transferBytes": 166488
+        },
+        {
+          "path": "/models/Props/headphones.glb",
+          "bodyBytes": 3635616,
+          "startMs": 141.2,
+          "transferBytes": 3635916
+        },
+        {
+          "path": "/models/Props/mouse.glb",
+          "bodyBytes": 1541480,
+          "startMs": 141.3,
+          "transferBytes": 1541780
+        },
+        {
+          "path": "/models/Props/chair.glb",
+          "bodyBytes": 451828,
+          "startMs": 141.4,
+          "transferBytes": 452128
+        },
+        {
+          "path": "/models/Laptop/laptop.glb",
+          "bodyBytes": 1484084,
+          "startMs": 141.4,
+          "transferBytes": 1484384
+        },
+        {
+          "path": "/models/Porsche/porsche.glb",
+          "bodyBytes": 2224924,
+          "startMs": 141.5,
+          "transferBytes": 2225224
+        },
+        {
+          "path": "/models/Speaker/speaker.glb",
+          "bodyBytes": 1278008,
+          "startMs": 141.6,
+          "transferBytes": 1278308
+        },
+        {
+          "path": "/models/World/environment.glb",
+          "bodyBytes": 95452,
+          "startMs": 141.7,
+          "transferBytes": 95752
+        },
+        {
+          "path": "/models/World/baked_environment_desk.jpg",
+          "bodyBytes": 789073,
+          "startMs": 188,
+          "transferBytes": 789373
+        },
+        {
+          "path": "/ffbcd8e4fac59356.ico",
+          "bodyBytes": 15406,
+          "startMs": 257.4,
+          "transferBytes": 15706
+        },
+        {
+          "path": "/textures/posters/local/f40.jpg",
+          "bodyBytes": 97472,
+          "startMs": 435.9,
+          "transferBytes": 97772
+        },
+        {
+          "path": "/textures/posters/local/porsche-911.jpg",
+          "bodyBytes": 85331,
+          "startMs": 436,
+          "transferBytes": 85631
+        },
+        {
+          "path": "/textures/posters/local/m3-e30.jpg",
+          "bodyBytes": 149167,
+          "startMs": 436,
+          "transferBytes": 149467
+        },
+        {
+          "path": "/textures/posters/local/star-destroyer.jpg",
+          "bodyBytes": 165391,
+          "startMs": 436,
+          "transferBytes": 165691
+        },
+        {
+          "path": "/textures/posters/local/blue-orchid.jpg",
+          "bodyBytes": 418539,
+          "startMs": 436,
+          "transferBytes": 418839
+        },
+        {
+          "path": "/textures/posters/local/tsubaki.jpg",
+          "bodyBytes": 327753,
+          "startMs": 436,
+          "transferBytes": 328053
+        },
+        {
+          "path": "/textures/posters/local/gos-game.jpg",
+          "bodyBytes": 703536,
+          "startMs": 436,
+          "transferBytes": 703836
+        },
+        {
+          "path": "/textures/posters/local/resident-evil-4.jpg",
+          "bodyBytes": 199713,
+          "startMs": 436,
+          "transferBytes": 200013
+        },
+        {
+          "path": "/desktop.css",
+          "bodyBytes": 81736,
+          "startMs": 1153,
+          "transferBytes": 82036
+        },
+        {
+          "path": "/desktop.3a183ce2d4ee9790.js",
+          "bodyBytes": 229446,
+          "startMs": 1153,
+          "transferBytes": 229746
+        },
+        {
+          "path": "/desktop/wallpapers/img0.jpg",
+          "bodyBytes": 42314,
+          "startMs": 1203,
+          "transferBytes": 42614
+        }
+      ]
+    },
+    {
+      "report": "before-verified-1794239935963.4-_-settled.json",
+      "label": "before-verified",
+      "visit": "cached",
+      "sceneReadyMs": 1781.4,
+      "interactiveMs": 7400,
+      "skipIntro": false,
+      "desktopReadyMs": 1853,
+      "frameMs": {
+        "count": 400,
+        "median": 8.3,
+        "p95": 11.2
+      },
+      "approxFps": 114,
+      "totalAssetBodyBytes": 15148321,
+      "criticalAssetBodyBytes": 15148321,
+      "assets": [
+        {
+          "path": "/main.d60ef5d35c152603.js",
+          "bodyBytes": 871943,
+          "startMs": 60.7,
+          "transferBytes": 0
+        },
+        {
+          "path": "/main.css",
+          "bodyBytes": 15791,
+          "startMs": 60.9,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/Props/cube-2x2.glb",
+          "bodyBytes": 22368,
+          "startMs": 147.9,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/Props/cube-3x3.glb",
+          "bodyBytes": 71168,
+          "startMs": 148.2,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/Props/cube-4x4.glb",
+          "bodyBytes": 166188,
+          "startMs": 148.2,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/Props/headphones.glb",
+          "bodyBytes": 3635616,
+          "startMs": 148.3,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/Props/chair.glb",
+          "bodyBytes": 451828,
+          "startMs": 148.5,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/Props/mouse.glb",
+          "bodyBytes": 1541480,
+          "startMs": 148.5,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/Laptop/laptop.glb",
+          "bodyBytes": 1484084,
+          "startMs": 148.6,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/Speaker/speaker.glb",
+          "bodyBytes": 1278008,
+          "startMs": 148.7,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/Porsche/porsche.glb",
+          "bodyBytes": 2224924,
+          "startMs": 148.7,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/World/environment.glb",
+          "bodyBytes": 95452,
+          "startMs": 148.8,
+          "transferBytes": 0
+        },
+        {
+          "path": "/models/World/baked_environment_desk.jpg",
+          "bodyBytes": 789073,
+          "startMs": 239,
+          "transferBytes": 0
+        },
+        {
+          "path": "/textures/posters/local/f40.jpg",
+          "bodyBytes": 97472,
+          "startMs": 894,
+          "transferBytes": 0
+        },
+        {
+          "path": "/textures/posters/local/porsche-911.jpg",
+          "bodyBytes": 85331,
+          "startMs": 894.1,
+          "transferBytes": 0
+        },
+        {
+          "path": "/textures/posters/local/m3-e30.jpg",
+          "bodyBytes": 149167,
+          "startMs": 894.1,
+          "transferBytes": 0
+        },
+        {
+          "path": "/textures/posters/local/star-destroyer.jpg",
+          "bodyBytes": 165391,
+          "startMs": 894.3,
+          "transferBytes": 0
+        },
+        {
+          "path": "/textures/posters/local/blue-orchid.jpg",
+          "bodyBytes": 418539,
+          "startMs": 894.3,
+          "transferBytes": 0
+        },
+        {
+          "path": "/textures/posters/local/tsubaki.jpg",
+          "bodyBytes": 327753,
+          "startMs": 894.3,
+          "transferBytes": 0
+        },
+        {
+          "path": "/textures/posters/local/gos-game.jpg",
+          "bodyBytes": 703536,
+          "startMs": 894.4,
+          "transferBytes": 0
+        },
+        {
+          "path": "/textures/posters/local/resident-evil-4.jpg",
+          "bodyBytes": 199713,
+          "startMs": 894.4,
+          "transferBytes": 0
+        },
+        {
+          "path": "/desktop.3a183ce2d4ee9790.js",
+          "bodyBytes": 229446,
+          "startMs": 1754,
+          "transferBytes": 0
+        },
+        {
+          "path": "/desktop.css",
+          "bodyBytes": 81736,
+          "startMs": 1755,
+          "transferBytes": 0
+        },
+        {
+          "path": "/desktop/wallpapers/img0.jpg",
+          "bodyBytes": 42314,
+          "startMs": 1808,
+          "transferBytes": 0
+        }
+      ]
+    }
+  ]
+}

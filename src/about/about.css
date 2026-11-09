@@ -1,0 +1,619 @@
+/*
+ * "Who Am I?" personal page (/about/), also shown inside the desktop's
+ * Windows 7 browser. A carefully set personal homepage: a sidebar with the
+ * site name and section links, a long reading column with a controlled
+ * measure, editorial serif type, hairline and double rules, photographs
+ * set like mounted prints, and a status-bar footer. Original styling;
+ * system fonts only (Palatino/Cambria serif, Segoe UI for small labels).
+ * Light only; the Minecraft block at the end follows the desktop's toggle.
+ */
+
+:root {
+    --ab-page: #fdfeff;
+    --ab-ink: #1b1d21;
+    --ab-soft: #454b55;
+    --ab-muted: #6a717c;
+    --ab-rule: #1b1d21;
+    --ab-hair: #d3dde7;
+    --ab-link: #0b57b5;
+    --ab-visited: #5b2f8f;
+    --ab-accent: #2d7fcf;
+    --ab-sidebar: 236px;
+    --ab-measure: 37.5rem;
+    /* Paper grain: about 2.5% opacity, behind all content, never over photographs */
+    --ab-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .24 0 0 0 0 .3 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+    --ab-serif: 'Palatino Linotype', Palatino, 'Book Antiqua', Cambria, Georgia, serif;
+    --ab-ui: 'Segoe UI', 'Segoe UI Variable', Tahoma, system-ui, sans-serif;
+    color-scheme: light;
+    scroll-behavior: smooth;
+    scrollbar-color: #b9c6d3 #f2f5f8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        scroll-behavior: auto;
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--ab-grain), var(--ab-page);
+    color: var(--ab-ink);
+    font-family: var(--ab-serif);
+    font-size: 17px;
+    line-height: 1.68;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-kerning: normal;
+    font-feature-settings: 'kern', 'liga', 'onum';
+}
+
+a {
+    color: var(--ab-link);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+a:visited {
+    color: var(--ab-visited);
+}
+a:hover {
+    color: #0d6fe0;
+    text-decoration-thickness: 2px;
+}
+a:focus-visible {
+    outline: 1px dotted currentColor;
+    outline-offset: 3px;
+}
+
+/* ---------------------------------------------------------------- layout */
+
+.ab-site {
+    display: grid;
+    grid-template-columns: var(--ab-sidebar) minmax(0, 1fr);
+    grid-template-rows: 1fr auto;
+    min-height: 100vh;
+}
+
+/* Sidebar: a faint Aero-glass tint, like a Windows 7 navigation pane */
+.ab-sidebar {
+    grid-row: 1 / 2;
+    border-right: 1px solid var(--ab-hair);
+    background: linear-gradient(180deg, #f9fcff 0%, #eff5fb 100%);
+    box-shadow: inset -1px 0 0 #ffffffcc;
+}
+.ab-sidebar-inner {
+    position: sticky;
+    top: 0;
+    padding: 46px 26px 32px 34px;
+}
+
+/* Site title: a short accent bar, the name stacked, then a small-caps label
+   between hairlines */
+.ab-sitename {
+    position: relative;
+    display: block;
+    padding-top: 20px;
+    color: var(--ab-ink);
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+    text-decoration: none;
+}
+.ab-sitename::before {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 0;
+    width: 38px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--ab-accent), #8cc6f0);
+    box-shadow: 0 1px 0 #ffffff;
+}
+.ab-sitename span {
+    display: block;
+}
+.ab-sitename span + span {
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 0;
+}
+.ab-sitename:visited,
+.ab-sitename:hover {
+    color: var(--ab-ink);
+}
+.ab-sitelabel {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 14px 0 0;
+    color: var(--ab-muted);
+    font-size: 12px;
+    font-variant: small-caps;
+    letter-spacing: 0.2em;
+    text-transform: lowercase;
+    white-space: nowrap;
+}
+.ab-sitelabel::after {
+    content: '';
+    flex: 1 1 auto;
+    height: 1px;
+    background: var(--ab-hair);
+}
+
+.ab-sidebar nav ul {
+    margin: 38px 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--ab-hair);
+}
+.ab-sidebar nav li {
+    position: relative;
+    margin: 0;
+    padding: 11px 0 11px 18px;
+    border-bottom: 1px dotted #b8c7d6;
+}
+.ab-sidebar nav a {
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.ab-sidebar nav a:visited {
+    color: var(--ab-link);
+}
+.ab-sidebar nav a:hover {
+    text-decoration: underline;
+}
+/* Current section: a small glowing Aero ring, the modern cousin of the ○ marker */
+.ab-sidebar nav li::before {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 50%;
+    width: 7px;
+    height: 7px;
+    margin-top: -3.5px;
+    border: 1.5px solid #c0cedb;
+    border-radius: 50%;
+}
+.ab-sidebar nav li.is-current::before {
+    border-color: var(--ab-accent);
+    background: #e6f3fd;
+    box-shadow: 0 0 5px #7fc1f2;
+}
+.ab-sidebar nav li.is-current a {
+    color: #08397a;
+}
+
+/* Main reading column */
+.ab-main {
+    grid-row: 1 / 2;
+    min-width: 0;
+    max-width: 940px;
+    padding: 40px 56px 64px 54px;
+}
+.ab-main > section > p,
+.ab-main > section > h1,
+.ab-main > section > h2,
+.ab-split-text {
+    max-width: var(--ab-measure);
+}
+
+/* ---------------------------------------------------------------- welcome */
+
+.ab-welcome h1 {
+    margin: 0;
+    font-size: 68px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+.ab-subtitle {
+    margin: 6px 0 0 3px;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.005em;
+}
+.ab-headline {
+    margin: 4px 0 0 3px;
+    padding-bottom: 24px;
+    color: var(--ab-muted);
+    font-size: 15px;
+    font-style: italic;
+}
+/* Thick-over-thin rule closing the masthead block */
+.ab-welcome .ab-headline {
+    position: relative;
+    margin-bottom: 26px;
+}
+.ab-welcome .ab-headline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: var(--ab-measure);
+    height: 5px;
+    border-top: 2px solid var(--ab-rule);
+    border-bottom: 1px solid var(--ab-rule);
+}
+.ab-main p {
+    margin: 0 0 1.05em;
+    text-align: left;
+    hyphens: auto;
+}
+.ab-main p.ab-subtitle,
+.ab-main p.ab-headline {
+    text-align: left;
+}
+/* First paragraph after a heading is set a touch larger */
+.ab-welcome > .ab-headline + p,
+.ab-welcome > .ab-subtitle + p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+.ab-main p.ab-draft {
+    color: var(--ab-muted);
+    font-style: italic;
+}
+
+/* "Looking for my resume?" between a thick and a thin rule */
+.ab-resume {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    max-width: var(--ab-measure);
+    margin: 34px 0 40px;
+    padding: 14px 6px 14px 10px;
+    border-top: 3px double var(--ab-rule);
+    border-bottom: 1px solid var(--ab-rule);
+}
+.ab-resume-icon {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    filter: drop-shadow(0 1px 1.5px #1d2a3a33);
+}
+.ab-resume h3 {
+    margin: 0 0 1px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* ---------------------------------------------------------------- chapters */
+
+.ab-chapter {
+    position: relative;
+    margin: 0 0 42px;
+    padding-top: 30px;
+}
+/* A faint rule fading to the right opens each chapter */
+.ab-chapter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: calc(var(--ab-measure) + 120px);
+    height: 1px;
+    background: linear-gradient(90deg, #aebfd0, #d3dde7 55%, transparent);
+}
+.ab-chapter h2 {
+    margin: 0 0 14px;
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0;
+}
+.ab-chapter h2::after {
+    content: '';
+    display: block;
+    width: 34px;
+    height: 3px;
+    margin-top: 9px;
+    background: var(--ab-accent);
+}
+#welcome,
+.ab-chapter {
+    scroll-margin-top: 14px;
+}
+
+/* ---------------------------------------------------------------- figures */
+
+/* A mounted print: white mat, hairline edge, soft shadow; the photograph is
+   shown whole, in its own proportions */
+.ab-figure {
+    margin: 28px 0 32px;
+}
+.ab-frame {
+    padding: 9px;
+    background: #fff;
+    box-shadow:
+        0 0 0 1px #bccad8,
+        0 1px 0 1px #ffffff,
+        0 6px 16px #1d2a3a2e;
+}
+.ab-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 0 0 1px #00000026;
+}
+.ab-figure figcaption {
+    margin-top: 11px;
+    padding-top: 7px;
+    border-top: 1px solid var(--ab-hair);
+    color: var(--ab-soft);
+    font-size: 13.5px;
+    font-style: italic;
+    line-height: 1.45;
+    text-align: center;
+}
+.ab-figure figcaption b {
+    color: var(--ab-ink);
+    font-style: normal;
+    font-variant: small-caps;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+/* Childhood photo: large, ~90% of the column (about 640 px), natural proportions */
+.ab-landscape {
+    width: 90%;
+    max-width: 660px;
+}
+
+/* Where I Am Now: text beside the present-day portrait, nearer to the bottom */
+.ab-split {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 56px;
+}
+.ab-split-text {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+.ab-portrait {
+    flex: 0 0 38%;
+    max-width: 320px;
+    margin: 6px 0 0;
+}
+
+.ab-closing {
+    max-width: var(--ab-measure);
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 3px double var(--ab-rule);
+}
+.ab-closing p:last-child {
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+/* Status bar, like the bottom edge of an Explorer window */
+.ab-status {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 14px;
+    border-top: 1px solid #c5d3e0;
+    background: linear-gradient(#f7fafd, #e4ecf4);
+    box-shadow: inset 0 1px 0 #ffffffcc;
+    color: #3c4651;
+    font-family: var(--ab-ui);
+    font-size: 11.5px;
+}
+.ab-status a,
+.ab-status a:visited {
+    color: #2a5c8f;
+}
+
+/* ---------------------------------------------------------------- narrow */
+
+@media (max-width: 860px) {
+    .ab-main {
+        padding: 34px 30px 52px 34px;
+    }
+    .ab-welcome h1 {
+        font-size: 58px;
+    }
+    .ab-split {
+        gap: 26px;
+    }
+    .ab-portrait {
+        flex-basis: 40%;
+    }
+}
+
+@media (max-width: 760px) {
+    .ab-site {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr auto;
+    }
+    .ab-sidebar {
+        grid-row: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--ab-hair);
+    }
+    .ab-sidebar-inner {
+        position: static;
+        padding: 20px 20px 14px;
+    }
+    .ab-sitename {
+        padding-top: 16px;
+        font-size: 28px;
+    }
+    .ab-sitename span {
+        display: inline;
+    }
+    .ab-sitename span + span::before {
+        content: ' ';
+    }
+    .ab-sitelabel {
+        margin-top: 8px;
+        font-size: 11.5px;
+    }
+    .ab-sidebar nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 18px;
+        margin-top: 12px;
+    }
+    .ab-sidebar nav li {
+        padding: 8px 0 8px 15px;
+        border-bottom: 0;
+    }
+    .ab-sidebar nav a {
+        font-size: 12px;
+    }
+    .ab-main {
+        grid-row: auto;
+        padding: 26px 20px 38px;
+    }
+    .ab-welcome h1 {
+        font-size: 46px;
+    }
+    .ab-subtitle {
+        font-size: 19px;
+    }
+    .ab-main p {
+        text-align: left;
+    }
+    .ab-landscape {
+        width: 100%;
+    }
+    .ab-split {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+    }
+    .ab-portrait {
+        flex-basis: auto;
+        width: 72%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+}
+
+/* ---------------------------------------------------------------- Minecraft
+ * Easter egg: when the desktop's Konami theme is on, the page turns into a
+ * blocky inventory screen over dirt, using the same structure. */
+
+html[data-theme='minecraft'] {
+    --ab-page: #c6c6c6;
+    --ab-ink: #202020;
+    --ab-soft: #3a3a3a;
+    --ab-muted: #4a4a4a;
+    --ab-rule: #555;
+    --ab-hair: #555;
+    --ab-link: #1a3f7a;
+    --ab-visited: #4a2f7a;
+    --ab-accent: #3f7a1a;
+    --ab-serif: 'Lucida Console', Consolas, 'Courier New', monospace;
+    --ab-ui: 'Lucida Console', Consolas, 'Courier New', monospace;
+    -webkit-font-smoothing: none;
+    scrollbar-color: #555 #8b8b8b;
+}
+html[data-theme='minecraft'] body {
+    background:
+        conic-gradient(#7a5638 25%, #6f4e33 0 50%, #866043 0 75%, #7a5638 0) 0 0 / 32px 32px,
+        #6f4e33;
+    font-size: 14px;
+    line-height: 1.7;
+}
+html[data-theme='minecraft'] .ab-site {
+    margin: 14px;
+    min-height: calc(100vh - 28px);
+    border: 3px solid #000;
+    background: #c6c6c6;
+    box-shadow: inset 3px 3px 0 #fff, inset -3px -3px 0 #555, 6px 6px 0 #0000004d;
+}
+html[data-theme='minecraft'] .ab-sidebar {
+    background: #b4b4b4;
+    border-right: 3px solid #555;
+}
+html[data-theme='minecraft'] .ab-welcome h1 {
+    font-size: 44px;
+    letter-spacing: 0;
+    text-shadow: 3px 3px 0 #8b8b8b;
+}
+html[data-theme='minecraft'] .ab-chapter h2 {
+    display: inline-block;
+    padding: 2px 12px;
+    border: 2px solid #000;
+    background: #8b8b8b;
+    box-shadow: inset 2px 2px 0 #b9b9b9, inset -2px -2px 0 #4a4a4a;
+    color: #fff;
+    font-size: 17px;
+    text-shadow: 2px 2px 0 #3f3f3f;
+}
+html[data-theme='minecraft'] body {
+    font-feature-settings: normal;
+}
+html[data-theme='minecraft'] .ab-frame {
+    padding: 4px;
+    border: 3px solid #000;
+    background: #8b8b8b;
+    box-shadow: inset 2px 2px 0 #373737, inset -2px -2px 0 #fff;
+}
+html[data-theme='minecraft'] .ab-frame img {
+    box-shadow: none;
+}
+html[data-theme='minecraft'] .ab-sitename::before,
+html[data-theme='minecraft'] .ab-chapter h2::after,
+html[data-theme='minecraft'] .ab-chapter::before,
+html[data-theme='minecraft'] .ab-welcome .ab-headline::after {
+    display: none;
+}
+html[data-theme='minecraft'] .ab-sitename span + span {
+    font-style: normal;
+}
+html[data-theme='minecraft'] .ab-resume,
+html[data-theme='minecraft'] .ab-closing {
+    border-top-style: solid;
+}
+html[data-theme='minecraft'] .ab-sitelabel {
+    font-variant: normal;
+    letter-spacing: 0;
+    text-transform: none;
+}
+html[data-theme='minecraft'] .ab-sidebar nav li.is-current::before {
+    border-radius: 0;
+    box-shadow: none;
+    background: var(--ab-accent);
+}
+html[data-theme='minecraft'] .ab-status {
+    background: #8b8b8b;
+    border-top: 3px solid #555;
+    color: #fff;
+}
+html[data-theme='minecraft'] .ab-status a {
+    color: #fff;
+}
+
+/* Phone navigation retains the original page and natural image proportions. */
+@media (max-width: 760px) {
+    .ab-sidebar nav a { display: inline-flex; align-items: center; min-height: 44px; }
+    .ab-sidebar nav li { padding-block: 0; }
+    .ab-status { flex-wrap: wrap; gap: 4px 12px; }
+    .ab-main { overflow-wrap: anywhere; }
+    html[data-theme='minecraft'] .ab-site { margin: 8px; }
+    html[data-theme='minecraft'] .ab-sidebar { border-right: 0; border-bottom: 3px solid #555; }
+}

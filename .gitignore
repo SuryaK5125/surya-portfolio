@@ -1,0 +1,13 @@
+node_modules
+.DS_Store
+*.psd
+
+public/
+
+# Downloaded source models (large). Only their licence files are tracked;
+# see ASSETS.md for sources and tools/model-pipeline for the build steps.
+assets-source/**
+!assets-source/**/
+!assets-source/**/license.txt
+
+portfolio posters/
